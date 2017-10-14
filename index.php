@@ -82,6 +82,8 @@
                     Password: <input     type="passowrd" name="password"><br><br>
                     <input type="submit" name="login" value="login">
                     <input type="submit" name="report" value="report">
+					<?php echo "<p><a href='registration.php'> register here</a>";?>
+
                 </form>
 
                 <?php
@@ -90,5 +92,8 @@
                     } 
                 ?>
             </body>
+			<form action="registration.php>
+			<input type = "submit" username="sign-up" value="sign-up">
+			</form>
         </html>
     

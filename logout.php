@@ -6,4 +6,5 @@
 	if(isset($_SESSION['current_date'])) unset($_SESSION['current_date']);  //to Destroy Specified Session
 	header("Location: index.php");
     die();
+	
 ?>
