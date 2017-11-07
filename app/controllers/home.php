@@ -5,13 +5,18 @@ class Home extends Controller {
     public function index($name = '') {		
         $user = $this->model('User');
 		
-		if (strtolower($_SESSION['name']) == 'mike') {
+		if (isset($_SESSION['name'])) {
 			$message = 'You are awesome';
+
+            $reminders = $this->model('Reminder');
+
+            $list = $reminders->readAll();
+
+            $this->view('home/index', ['message' => $message, 'list' => $list]);
 		} else {
-			$message = 'You suck';
+            $this->view('home/login');
 		}
-		
-        $this->view('home/index', ['message' => $message]);
+
     }
 
     public function login($name = '') {

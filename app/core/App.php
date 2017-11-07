@@ -18,6 +18,7 @@ class App {
         /* if controller exists in the URL, then go to it
          * if not, then go to this->controller which is defaulted to home 
          */
+       // $url = array('login', 'index');
         if (file_exists('../app/controllers/' . $url[0] . '.php')) {
             $this->controller = $url[0];
 
