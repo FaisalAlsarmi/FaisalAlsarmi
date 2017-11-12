@@ -20,6 +20,8 @@ class Home extends Controller {
     }
 
     public function login($name = '') {
+        $user = $this->model('User');
+        $user->getTotalLoginToday();
         $this->view('home/login');
     }
 

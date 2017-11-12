@@ -36,7 +36,9 @@
     </table>
 
     <div class="row">
-        <a href="/remind/create"> Create a Reminder </a>
+        <div class="col-lg-12">
+            <a href="/remind/create"> Create a Reminder </a>
+        </div>
     </div>
-
+    <br>
     <?php require_once '../app/views/templates/footer.php' ?>
