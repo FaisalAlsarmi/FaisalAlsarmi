@@ -42,12 +42,13 @@ CREATE TABLE `users` (
   `Username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Password` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UserType` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `users` */
 
-insert  into `users`(`Username`,`Password`,`Email`) values ('user1','7ff10bc14a91fbc515c6d9f9807f0ede','ductruc@gmail.com'),('user2','7ff10bc14a91fbc515c6d9f9807f0ede','ductruc@gmail.com'),('vantruc','7ff10bc14a91fbc515c6d9f9807f0ede','ductruc@gmail.com');
+insert  into `users`(`Username`,`Password`,`Email`,`UserType`) values ('user1','7ff10bc14a91fbc515c6d9f9807f0ede','ductruc@gmail.com','admin'),('user2','7ff10bc14a91fbc515c6d9f9807f0ede','ductruc@gmail.com',NULL),('vantruc','7ff10bc14a91fbc515c6d9f9807f0ede','ductruc@gmail.com','admin');
 
 /*Table structure for table `users_login` */
 
@@ -59,11 +60,11 @@ CREATE TABLE `users_login` (
   `LoginTime` int(10) NOT NULL,
   `Status` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `users_login` */
 
-insert  into `users_login`(`Id`,`Username`,`LoginTime`,`Status`) values (3,'test',1510272920,0),(4,'test',1510272942,0),(5,'user1',1510274187,1);
+insert  into `users_login`(`Id`,`Username`,`LoginTime`,`Status`) values (3,'test',1510272920,0),(4,'test',1510272942,0),(5,'user1',1510274187,1),(6,'user1',1511226407,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

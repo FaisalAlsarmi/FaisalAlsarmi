@@ -10,7 +10,11 @@ class Home extends Controller {
 
             $reminders = $this->model('Reminder');
 
-            $list = $reminders->readAll();
+            if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
+                $list = $reminders->readAll();
+            } else{
+                $list = $reminders->get_reminders();
+            }
 
             $this->view('home/index', ['message' => $message, 'list' => $list]);
 		} else {

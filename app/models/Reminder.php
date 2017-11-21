@@ -7,6 +7,17 @@ class Reminder {
         
     }
 
+    public function get_reminders () {
+        $db = db_connect();
+        $statement = $db->prepare("SELECT * FROM reminders
+                                WHERE username = :username AND deleted = 0;");
+        $statement->bindValue(':username', $_SESSION['username']);
+
+        $statement->execute();
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
+    }
+
     public function readAll() {
         /*
          * if username and password good then

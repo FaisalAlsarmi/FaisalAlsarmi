@@ -28,6 +28,7 @@ class User {
 			$this->auth = true;
             $_SESSION['name'] = $rows[0]['Username'];
 			$_SESSION['email'] = $rows[0]['Email'];
+            $_SESSION['usertype'] = $rows[0]['UserType'];
 			//log the login
             $statement = $db->prepare("INSERT INTO Users_login (Username, LoginTime, Status)"
                 . " VALUES (:username, :logintime, :status); ");

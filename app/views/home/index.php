@@ -22,7 +22,6 @@
             <th>Subject</th>
             <th>Action</th>
         </tr>
-
         <?php foreach ($data['list'] as $items){ ?>
             <tr>
                 <td><?=$items['subject']?></td>

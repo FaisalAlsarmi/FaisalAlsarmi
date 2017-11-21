@@ -21,14 +21,17 @@ if (isset($_SESSION['auth']) != 1) {
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/home">COSC</a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+
                     </button>
                 </div>
 
                 <div class="navbar-collapse collapse" id="navbar-main">
+
                     <ul class="nav navbar-nav navbar-right">
+                        <li class="icon-bar"><a href="/home">Reminders</a> </li>
+                        <?php if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){ ?>
+                            <li class="icon-bar"><a href="/reports/admin">Report</a> </li>
+                        <?php } ?>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </div>
