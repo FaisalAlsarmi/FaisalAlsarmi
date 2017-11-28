@@ -3,6 +3,7 @@
 class Login extends Controller {
     public function index() {
         $user = $this->model('User');
+        $profile = $this->model('MyProfile');
 
         if (isset($_POST['username'])) {
             $user->username = $_POST['username'];
@@ -16,6 +17,12 @@ class Login extends Controller {
 
         if ($user->auth == TRUE) {
             $_SESSION['auth'] = true;
+            // check profile
+            $row = $profile->getProfiles();
+            if (!$row) {
+                header('Location: /profile/create');
+                exit();
+            }
         }
         
         header('Location: /home');

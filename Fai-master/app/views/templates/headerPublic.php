@@ -19,6 +19,9 @@ require_once('../app/core/utils.php');
         .total_login{
             padding: 10px 0;
         }
+        .message{
+            color: red;
+        }
     </style>
 </head>
 <body>

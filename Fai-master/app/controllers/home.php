@@ -4,8 +4,14 @@ class Home extends Controller {
 
     public function index($name = '') {		
         $user = $this->model('User');
-		
+        $profile = $this->model('MyProfile');
 		if (isset($_SESSION['name'])) {
+            // check profile
+            $row = $profile->getProfiles();
+            if (!$row) {
+                header('Location: /profile/create');
+                exit();
+            }
 			$message = 'You are awesome';
 
             $reminders = $this->model('Reminder');

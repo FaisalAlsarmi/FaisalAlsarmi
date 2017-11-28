@@ -16,6 +16,24 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`cosc` /*!40100 DEFAULT CHARACTER SET ut
 
 USE `cosc`;
 
+/*Table structure for table `personaldetails` */
+
+DROP TABLE IF EXISTS `personaldetails`;
+
+CREATE TABLE `personaldetails` (
+  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `birthdate` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phonenumber` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `firstname` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lastname` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `personaldetails` */
+
+insert  into `personaldetails`(`username`,`birthdate`,`phonenumber`,`firstname`,`lastname`,`email`) values ('user1','12-10-1998','0123456789','Vincent','Nguyen','vincent@gmail.com');
+
 /*Table structure for table `reminder` */
 
 DROP TABLE IF EXISTS `reminder`;
@@ -28,7 +46,7 @@ CREATE TABLE `reminder` (
   `deleted` tinyint(1) DEFAULT '0',
   `username` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `reminder` */
 
@@ -60,11 +78,11 @@ CREATE TABLE `users_login` (
   `LoginTime` int(10) NOT NULL,
   `Status` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `users_login` */
 
-insert  into `users_login`(`Id`,`Username`,`LoginTime`,`Status`) values (3,'test',1510272920,0),(4,'test',1510272942,0),(5,'user1',1510274187,1),(6,'user1',1511226407,1);
+insert  into `users_login`(`Id`,`Username`,`LoginTime`,`Status`) values (3,'test',1510272920,0),(4,'test',1510272942,0),(5,'user1',1510274187,1),(6,'user1',1511226407,1),(7,NULL,1511819898,0),(8,'user1',1511819902,1),(9,'user1',1511819917,1),(10,NULL,1511819946,0),(11,'user1',1511819956,1),(12,'user1',1511820006,1),(13,'user1',1511820306,1),(14,'user1',1511820483,1),(15,'user1',1511821790,1),(16,'user1',1511821811,1),(17,'user2',1511822819,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
