@@ -14,11 +14,15 @@ if (isset($_SESSION['auth']) != 1) {
         <meta name="viewport" content="width=device-width">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="mobile-web-app-capable" content="yes">
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
+        <script src="/js/app.js"></script>
         <style type="text/css">
             .message{
                 color: red;
             }
         </style>
+
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -33,7 +37,7 @@ if (isset($_SESSION['auth']) != 1) {
                 <div class="navbar-collapse collapse" id="navbar-main">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="icon-bar"><a href="/home">Reminders</a> </li>
+
                         <?php if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){ ?>
                             <li class="icon-bar"><a href="/reports/admin">Report</a> </li>
                         <?php } ?>

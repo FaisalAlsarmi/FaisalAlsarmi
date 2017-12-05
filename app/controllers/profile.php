@@ -43,7 +43,14 @@ class Profile extends Controller {
     }
 	public function create () {
 		$profile = $this->model('MyProfile');
-		
+        $user = $this->model('User');
+        $provinces = $user->get_provinces();
+        $province_select= '<select name="select" name="province" onchange="fetch_city(this.value);">';
+        $province_select .= '<option value="">Select a province</option>';
+        foreach ($provinces as $province) {
+            $province_select .= '<option value="'. $province['ProvinceId'] .'">'.$province['ProvinceName'].'</option>';
+        }
+        $province_select.='</select>';
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_SESSION['name'];
 			$firstname = $_POST['firstname'];
@@ -51,6 +58,9 @@ class Profile extends Controller {
 			$birthdate = $_POST['birthdate'];
 			$phonenumber = $_POST['phonenumber'];
             $email = $_POST['email'];
+            $province = $_POST['province'];
+            $city = $_POST['city'];
+            $note = $_POST['note'];
             $message = "";
             if(empty($firstname)){
                 $message .= "Firstname must be not empty! <br>";
@@ -87,20 +97,31 @@ class Profile extends Controller {
                 }
             }
             if(empty($message)){
-                $profile->create($username, $birthdate, $phonenumber, $firstname, $lastname, $email);
+                $profile->create($username, $birthdate, $phonenumber, $firstname, $lastname, $province, $city, $email, $note);
                 $message = "Created record successfully! <br>";
                 $this->view('profile/createtemp', ['message' => $message]);
             } else  {
 
                 $this->view('profile/createtemp', ['message' => $message, 'username' => $username,
                                                         'birthdate' => $birthdate, 'phonenumber' => $phonenumber, 'firstname' => $firstname,
-                                                        'lastname' => $lastname, 'email' => $email ]);
+                                                        'lastname' => $lastname, 'email' => $email,
+                                                        'province' => $province, 'city' => $city,
+                                                         'note' => $note ]);
             }
 
 		} else {
-            $this->view('profile/createtemp');
+            $this->view('profile/createtemp', ['province_select' => $province_select]);
         }
 	}
+    public function fetch_city() {
+        $user = $this->model('User');
+        $province = $_REQUEST['get_province'];
+        $cities = $user->get_cities($province);
+
+        foreach ($cities as $city) {
+            echo '<option value="'. $city['CityName'] .'">'.$city['CityName'].'</option>';
+        }
+    }
 
     public function update ($id="") {
         $remind = $this->model('MyProfile');

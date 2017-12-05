@@ -20,6 +20,9 @@
                 Birthdate:<input type="text" name="birthdate" placeholder="format as mm-dd-yyyy" value="<?=$data['birthdate']?>"><br><br>
                 Phone number:<input type="text" name="phonenumber" value="<?=$data['phonenumber']?>"><br><br>
                 Email:   <input type="text" name="email" value="<?=$data['email']?>"><br><br>
+                Province:   <?=$data['province_select']?><br><br>
+                City:   <select name="city" id="city"><option value="">Select province first</option></select><br><br>
+                Note:   <textarea name="note"><?=$data['note']?></textarea> <br><br>
                 <input type="submit" name="save" value="save">
 
             </form>

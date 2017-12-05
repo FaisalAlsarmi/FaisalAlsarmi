@@ -15,6 +15,9 @@ require_once('../app/core/utils.php');
     <meta name="viewport" content="width=device-width">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
+    <script src="/js/app.js"></script>
     <style type="text/css">
         .total_login{
             padding: 10px 0;

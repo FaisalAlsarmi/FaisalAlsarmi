@@ -29,10 +29,15 @@
                     <p> birthdate: <?= $data['values']['birthdate'] ?> </p>
                     <p> phonenumber: <?= $data['values']['phonenumber'] ?> </p>
                     <p> email: <?= $data['values']['email'] ?> </p>
+                    <p> province: <?= $data['values']['province'] ?> </p>
+                    <p> city: <?= $data['values']['city'] ?> </p>
+                    <p> note: <?= $data['values']['note'] ?> </p>
 
                 </div>
             </div>
-
+            <div class="row">
+                <a href="/profile/update/<?= $data['values']['username'] ?>">Update profile</a>
+            </div>
             <?php
         }
     ?>
